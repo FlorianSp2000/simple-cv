@@ -2,7 +2,7 @@
 
 A minimalist LaTeX CV template built for clarity and readability. Single-file, black & white design intended primarily for academic and research positions.
 
-![Simple-CV Screenshot](simple_cv_preview.png)
+<img src="simple_cv_preview.png" alt="Simple-CV Screenshot" width="400">
 
 ## Philosophy
 
@@ -29,4 +29,4 @@ pdflatex template.tex
 The template is designed for easy modification:
 - Change the color scheme by editing the color definitions
 - Adjust spacing by modifying the geometry settings
-- See [customization-guide.md](docs/customization-guide.md) for more options
+- See [customization-guide.md](customization_guide.md) for more options
