@@ -1,0 +1,188 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage{enumitem}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{xcolor}
+\usepackage{fancyhdr} % For header/footer
+\usepackage{lastpage}
+
+\definecolor{lightblue}{RGB}{30,144,255}
+\definecolor{darkgray}{RGB}{105,105,105}
+% Page layout
+\geometry{a4paper, margin=2cm} % Adjust margin as needed
+
+% Setup footer
+\pagestyle{fancy}
+\fancyhf{} % Clear all header/footer fields
+\renewcommand{\headrulewidth}{0pt} % No header rule
+\fancyfoot[R]{John Doe} % Always on every page
+
+% Colors for hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=lightblue,
+    filecolor=lightblue,
+    urlcolor=lightblue
+}
+
+% Format for section headings with horizontal line
+\titleformat{\section}
+  {\normalfont\large\scshape}  % <-- small caps
+  {}
+  {0em}
+  {\hspace{-0.1em}}
+  [{\titlerule[0.8pt]}]
+\titlespacing{\section}{0pt}{12pt}{8pt}
+
+% Define content widths
+\newlength{\cventrywidth}
+\setlength{\cventrywidth}{0.72\textwidth} % adjust as needed
+
+% Indented block for section content
+\newenvironment{cvsection}{
+  \begingroup
+  \leftskip=1em
+  \parindent=0pt
+}{\par\endgroup}
+
+% Employment/education entry command
+\newcommand{\cventry}[3]{
+  \noindent
+  \makebox[\dimexpr\textwidth-1em\relax][l]{%
+    \begin{tabular*}{\dimexpr\textwidth-1em\relax}{@{}p{\cventrywidth}@{\extracolsep{\fill}}r@{}}
+      \textbf{#1} & \textit{#2} \\
+    \end{tabular*}%
+  }\\
+  #3
+
+  \vspace{4mm}
+}
+
+\newcommand{\cveducation}[5]{
+  \noindent
+  \makebox[\dimexpr\textwidth-1em\relax][l]{%
+    \begin{tabular*}{\dimexpr\textwidth-1em\relax}{@{}p{\cventrywidth}@{\extracolsep{\fill}}r@{}}
+      \textbf{#1} & \textit{#2} \\
+    \end{tabular*}%
+  }\\
+  #3
+
+  #4
+
+  #5
+
+  \vspace{4mm}
+}
+
+\setlist[itemize]{
+  label=-,
+  left=11pt,
+  labelsep=0.5em,
+  itemsep=1.5pt,
+  nosep,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\begin{document}
+
+% Header
+\begin{center}
+  \LARGE\textbf{JOHN DOE}
+\end{center}
+
+\begin{center}
+  John Doe \textbar{} 123 Main Street \textbar{} 12345 Anytown \textbar{} Country \\
+  \Telefon~(555) 123-4567 \quad \Letter~\href{mailto:john.doe@example.com}{john.doe@example.com}
+ \quad \(\diamond\)~www.johndoe.com
+\end{center}
+
+\vspace{1mm}
+
+% Employment section
+\section{Professional Experience}
+\begin{cvsection}
+\cventry{TechInnovate Solutions, San Francisco, CA}{Jan 2022 – present}
+{\textit{Senior Software Engineer}
+\begin{itemize}
+  \item Led development of cloud-based analytics platform serving 50,000+ users
+  \item Implemented machine learning algorithms for predictive maintenance, reducing system downtime by 30\%
+  \item Mentored junior developers and established code review practices for team of 12 engineers
+\end{itemize}}
+
+\cventry{DataSystems Corp, Boston, MA}{Mar 2018 – Dec 2021}
+{\textit{Software Developer}
+\begin{itemize}
+  \item Designed and built REST APIs for enterprise resource management systems
+  \item Optimized database queries resulting in 40\% improvement in application response time
+  \item Collaborated with product management to define technical requirements for new features
+\end{itemize}}
+\end{cvsection}
+
+% Education section
+\section{Education}
+\begin{cvsection}
+\cveducation{Stanford University, USA}{Sep 2016 – Jun 2018}
+{M.S. in Computer Science, Specialization in Artificial Intelligence}
+{Thesis: Deep Learning Approaches for Natural Language Understanding\\
+GPA: 3.9/4.0}
+{Advisor: Prof. Sarah Johnson}
+
+\cveducation{University of Michigan, USA}{Sep 2012 – May 2016}
+{B.S. in Computer Engineering}
+{Senior Project: Autonomous Drone Navigation System}
+{GPA: 3.8/4.0, Graduated with Honors}
+\end{cvsection}
+
+% Honors and Awards
+\section{Honors and Awards}
+\begin{cvsection}
+\cventry{ACM Distinguished Paper Award}{2021}{For innovative work in distributed systems architecture}
+
+\cventry{Outstanding Graduate Student Award}{2018}{Awarded by Stanford Computer Science Department}
+\end{cvsection}
+
+% Invited Talks and Publications
+\section{Publications and Presentations}
+\begin{cvsection}
+\cventry{IEEE International Conference on Software Engineering (ICSE)}{2022}
+{Paper: \textit{Scalable Microservice Architecture for Cloud-Native Applications}}
+
+\cventry{ACM SIGKDD Conference on Knowledge Discovery and Data Mining}{2020}
+{Paper: \textit{Efficient Graph Neural Networks for Large-Scale Recommendation Systems}}
+\end{cvsection}
+
+% Service and Extracurricular Activities
+\section{Services}
+\begin{cvsection}
+\cventry{Open Source Contributions}{2019 – Present}
+{\textit{Software Development Community Engagement}
+\begin{itemize}
+  \item Core contributor to TensorFlow Extended (TFX) machine learning platform
+  \item Maintainer of popular data visualization library with 5,000+ GitHub stars
+\end{itemize}}
+
+\cventry{Conference Reviewer}{2020 – Present}
+{\textit{Academic Service and Peer Review}
+\begin{itemize}
+  \item IEEE International Conference on Software Engineering (ICSE)
+  \item ACM SIGKDD Conference on Knowledge Discovery and Data Mining
+\end{itemize}}
+\end{cvsection}
+
+% Date of Update on last page
+\thispagestyle{fancy}
+\vspace*{\fill}
+\begin{center}
+    \textcolor{darkgray}{Last Update: \today}
+\end{center}
+\vspace*{-2cm}
+
+\end{document}
